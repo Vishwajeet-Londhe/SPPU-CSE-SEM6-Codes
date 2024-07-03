@@ -1,0 +1,29 @@
+public class Calculator {
+    public Double xvalue {get;set;}
+    public Double yvalue {get;set;}
+    public Double result {get;set;}
+    public string operation {get;set;}
+ 
+    public pagereference sub() {
+        result = xvalue-yvalue;
+        operation = 'Subtraction';
+        return null;
+    }
+    public pagereference add() {
+        result = xvalue+yvalue;
+        operation = 'Addition';
+        return null;
+    }
+   
+     public pagereference mul() {
+        result = xvalue*yvalue;
+        operation = 'Multiplication';
+        return null;
+     }
+    public pagereference div() {
+        result = xvalue+yvalue;
+        operation = 'Division';
+        return null;
+    }
+    
+}
