@@ -1,0 +1,36 @@
+<apex:page controller="Calculator" sidebar="false" >
+    <apex:form >
+        <apex:pageBlock title="Calculator">
+            <apex:pageBlockSection columns="1" title="Mathematical Operations" collapsible="false">           
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Enter X value </apex:outputLabel>
+                <apex:inputText value="{!xvalue}"/>                
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Enter Y value </apex:outputLabel>
+                <apex:inputText value="{!yvalue}"/>    
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Result </apex:outputLabel>
+                <apex:inputText value="{!result}"/>    
+            </apex:pageBlockSectionItem>
+             <apex:pageBlockSectionItem >
+                    <apex:outputLabel > You have performed {!operation} of {!xvalue} and {!yvalue}.
+                    </apex:outputLabel>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:commandButton value="Addition" action="{!add}"/> 
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:commandButton value="Subtraction" action="{!sub}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:commandButton value="Multiplication" action="{!mul}"/> 
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:commandButton value="Division" action="{!div}"/> 
+            </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+       </apex:pageBlock>
+    </apex:form>   
+</apex:page>

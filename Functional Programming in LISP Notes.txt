@@ -1,0 +1,164 @@
+**Atoms:
+Space seprated expression in LISP are called atoms
+eg: name
+    abc
+    123
+
+
+**List:
+Parenthesized collection of atoms.
+eg:
+    (23 23 34)
+    (name fame game james yeah that was lame)
+
+**Symbolic expression:
+Expressions are combinations of operator and List.
+eg: 
+    (> 23 34) ---> False
+    (* 20 20) ---> 400
+    we can use all types of relational and arithmetic operator
+
+~Expressions are given in preorder style
+
+**Functions in LISP:
+1. length : Gives us Length of List
+2. append : Appends atoms to list
+3. map: helps us apply a function to atoms of list
+        eg:
+            (map abs(10 -12 34 -45))
+            >>> (10 12 34 45)
+
+4. Mathematical Functions included are abs, sqrt, min, max and may be more too
+5. eval: helps evaluate expression
+        eg:
+            (eval (+10 23))
+            >>33
+
+~Whitespace seems to be extremely important in LISP
+
+
+**List Primitives:
+1. car: returns first element of the list.
+2. cdr: returns list with first element removed.
+~ cdr pronounced as could-er
+3. cons: Combines two lists
+
+~Primitives and Selectors and other functions have a ' i.e single inverted comma with parenthesizes
+    e.g: (car '(12 23 43)) --> Noticed the inverted comma?
+
+**Selectors:
+1. first: returns the first element of the list
+    e.g: (first '((23 34) 45)) 
+        >>>(23 34)
+2. rest: returns list by removing first element
+    e.g: (rest '(23 34) 45)
+    >>> 45
+
+~first and rest can work with list while car and cdr can only work with atoms
+3. setf: helps in assignement of list to place
+  eg: (setf foo '(1 2 3)) ;foo holds the list 1 2 3
+
+**Definations:
+Operator defun is used to define procedure or we can say a function.
+Here's the syntax:
+    defun (proc_name(argument1 argument2)
+        body of procedure
+        ....)
+Eg:
+    defun (sum(a b)
+        (+ a b))
+    ;Now use sum any way you want
+    sum(23 34)
+    >>58
+    ;Lets try for cube
+    defun (cube(a)
+        (* (*a a) a))
+    
+    cube(3)
+    >>>27
+
+//sum of squares = a^2 + b^2 ---> (+( (* a a) (* b b) ) )
+
+**Predicates:
+A procedure that returns bool values, always.
+False value indicated by NIL and True value by T.
+These two are special symbols.
+Some of the Predicates are:
+1. eq: are the two arguments equal?
+    eg: (eq '4 '5) >> NIL
+2. Data type Predicates: Test for a particular datatype
+    eg:  (LISTP S) tests if S is a list
+3. Empty List Prediactes: Check if argument is null or not
+    eg: (null (NIL)) >>> T
+4. List-Membership Predicates: Checks Membership of the atom in the list, if present returns the list starting the first occurence of the list
+    eg: (member c' '(a b c d e f)) >>> (c d e f)                             
+5. Number Predicates: Some evaluation on numbers:
+    i. evenp: check if numeric argument is even.
+        eg: (evenp 10) >> T
+    ii. oddp: you already guessed what it does.
+        eg: (oddp 10) >> NIL
+    iii. numberp: returns T is argument is a number.
+        eg: (numberp 'AB) >> NIL ;'
+
+** Conditional Statement:
+1. if: (if(conditional expression)(if true then do this)(else do this))
+    eg: (if(> 10 20) 10) >> NIL
+    ; No false statement was written hence NIL is returned
+    eg: (if(> 10 20) 10 20) >> 20
+
+    Now, if we want multiple expression to execute then we use progn
+    eg: (if(> 10 20)
+        (progn
+        print "This is will executed if expression was true"
+        ;....do something more)
+        (print "This is will executed if expression was false")
+        )
+
+2. dotimes: used to repeatedly execute some statement
+            it needs a variable whose value is incremented upto a specific point to keep count of iterations
+            it can take an optional parameter as well to return after the iteration is done with
+    eg: (dotime (a 5 "YEAH!"))
+
+3. cond: this can also be used to specify conditional statements
+    eg: (cond
+    ((> 20 10)(print "Hello"))
+    ((< 20 10)(print "Wello"))
+    )
+
+~A variable is said to be bound if the meaning of expression in which x is used is not changed when x is replaced by y.
+~A variable is said to be free if the meaning of expression in which x is used is changed when x is replaced by y.
+
+int a = y - x;
+
+**Properties:
+We can assign properties to variables and make them behave like objects
+eg: (setf (get 'student 'name)'(Alice)) >> (Alice) ;'
+eg: (setf (get 'student 'rollno.)'(12)) >> (12) ;'
+symbol-plist helps us see all the properties of symbol
+
+**Association list can also be created:
+    assoc helps us fetch symbol from the object
+    eg: (assoc 'age '((name aa)(age 23))) >> (AGE 23)
+
+**Arrays:
+we can store values in arrays
+eg : (ARRAY table 20 20) >> table
+    (STORE (table 12 14) 199) >> 199 ; 199 has been stored Now
+    
+
+**Lambda definations:
+Lambda helps create function that can return values which is otherwise not possible using defun
+syntax: (lambda (parameters)(body))
+eg: ((lambda (x y)(* x y))10 20) >> 200
+Lambda helps us return values in a defun too when it is written using a special syntax
+(defun add(y)
+#'(lambda (x)(+ x y)))
+ADD
+; '
+
+** setq: use setq to set values to symbol
+    eg: (setq x 123)
+
+** let: helps us define multiple variable intialization and evaluation
+    eg: (let (x = 2, y = 3, z = x + y)print(x + y + z))
+
