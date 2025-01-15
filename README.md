@@ -1,4 +1,4 @@
-<h1 align="center">SPPU CSE SEM-VI Practical Codes</h1>
+<h1 align="center">SPPU CSE SEM-VI Practical Code</h1>
 
 <p align='center'>
   <a href="https://whatsapp.com/channel/0029ValjFriICVfpcV9HFc3b">
