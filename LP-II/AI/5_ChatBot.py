@@ -1,97 +1,43 @@
-import nltk
-from nltk.chat.util import Chat, reflections
+import re
 
-pairs=[
-    #
-    [
-        r"my name is (.)",
-        ["Hello %1, How are you"]
-    ],
-    # Or expression
-    [
-        r"Hi|Hello|Hey there|Hola",
-        ["Hello my name is Hiesenberg"]
-    ],
-    [
-        r"what is your name ?",
-        ["I am a bot created by Heisenbergwhat. you can call me crazy!",]
-    ],
-    [
-        r"how are you ?",
-        ["I'm doing good How about You ?",]
-    ],
-    [
-        r"sorry (.*)",
-        ["Its alright","Its OK, never mind",]
-    ],
-    [
-        r"I am fine",
-        ["Great to hear that, How can I help you?",]
-    ],
-    [
-        r"I (.*) good",
-        ["Nice to hear that","How can I help you?:)",]
-    ],
-    [
-        r"(.*) age?",
-        ["I'm a computer program dude Seriously you are asking me this?",]
-    ],
-    [
-        r"what (.*) want ?",
-        ["Make me an offer I can't refuse",]
-    ],
-    [
-        r"(.*) created ?",
-        ["Raghav created me using Python's NLTK library ","top secret ;)",]
-    ],
-    [
-        r"(.*) (location|city) ?",
-        ['Indore, Madhya Pradesh',]
-    ],
-    [
-        r"how is weather in (.*)?",
-        ["Weather in %1 is awesome like always","Too hot man here in %1","Too cold man here in %1","Never even heard about %1"]
-    ],
-    [
-        r"i work in (.*)?",
-        ["%1 is an Amazing company, I have heard about it. But they are in huge loss these days.",]
-    ],
-    [
-        r"(.*)raining in (.*)",
-        ["No rain since last week here in %2","Damn its raining too much here in %2"]
-    ],
-    [
-        r"how (.*) health(.*)",
-        ["I'm a computer program, so I'm always healthy ",]
-    ],
-    [
-        r"(.*) (sports|game) ?",
-        ["I'm a very big fan of Football",]
-    ],
-    [
-        r"who (.*) sportsperson ?",
-        ["Messy","Ronaldo","Roony"]
-    ],
-    [
-        r"who (.*) (moviestar|actor)?",
-        ["Brad Pitt"]
-    ],
-    [
-        r"i am looking for online guides and courses to learn data science, can you suggest?",
-        ["Crazy_Tech has many great articles with each step explanation along with code, you can explore"]
-    ],
-    [
-        r"quit",
-        ["Thank you for using our intelligence services"]
-    ],
-    
+def chatbot_response(user_input):
+    user_input = user_input.lower()
 
-]
+    responses = {
+        r"\b(1|hello|hi|hey)\b": " Hello! Welcome to our grocery store. How can I help you today?",
+        r"\b(2|how are you)\b": "I'm just a bot, but I'm here to assist you with groceries!",
+        r"\b(3|order status|track order)\b": "Please provide your order ID to check the status.",
+        r"\b(4|shipping time|delivery time)\b": "We offer same-day delivery and standard shipping (3-5 business days).",
+        r"\b(5|return policy)\b": "You can return items within 7 days if unopened. Would you like help with a return?",
+        r"\b(6|thank you|thanks)\b": " You're welcome! Let me know if you need anything else.",
+        r"\b(7|price|cost)\b": "Please specify the product name to check its price.",
+        r"\b(8|milk)\b": "Milk is 30rs per liter.",
+        r"\b(9|eggs)\b": "A dozen eggs cost 80rs.",
+        r"\b(10|rice)\b": "Rice is 50rs per kg.",
+        r"\b(11|vegetables|veggies)\b": "We have fresh vegetables available. What are you looking for?",
+        r"\b(12|fruits)\b": "We have apples, bananas, and oranges in stock. Which one do you need?",
+        r"\b(13|snacks)\b": "We have chips, biscuits, and chocolates available.",
+        r"\b(14|beverages|drinks)\b": "We have soft drinks, juices, and bottled water. What would you like?",
+        r"\b(15|buy|order)\b": "You can place an order on our website or visit our store.",
+        r"\b(16|payment methods)\b": "We accept cash, credit/debit cards, and UPI payments.",
+        r"\b(17|store hours|timing)\b": "Our store is open from 8 AM to 10 PM every day.",
+        r"\b(18|location|address)\b": "We are located at XYZ Market, Main Street, City.",
+        r"\b(19|bye|exit)\b": "Goodbye! Happy shopping! 🛍"
+    }
 
-def chat():
-    print("Hey there! I am Heisenberg at your service")
-    chat = Chat(pairs)
-    chat.converse()
+    for pattern, response in responses.items():
+        if re.search(pattern, user_input):
+            return response
+   
+    return "I am sorry, I didn't understand that. Can you rephrase or ask about a specific grocery item?"
 
-if __name__== "__main__":
-    chat()
+# Chatbot interaction loop
+print("🛒 Welcome to our Grocery Chatbot! Type 'exit' to end the conversation.")
+
+while True:
+    user_message = input("You: ")
+    if user_message.lower() in ["bye", "exit"]:
+        print("Chatbot: Goodbye! Happy shopping! 🛍")
+        break
+    response = chatbot_response(user_message)
+    print("Chatbot:", response)
