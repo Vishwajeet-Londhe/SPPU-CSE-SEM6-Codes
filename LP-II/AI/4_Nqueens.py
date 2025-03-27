@@ -36,9 +36,6 @@ def nQueen(arr,x,n):
 
     return False
 
-
-
-
 def main():
     n = int(input("Enter number of Queens : "))
     arr = [[0]*n for i in range(n)]

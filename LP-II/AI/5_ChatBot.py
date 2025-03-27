@@ -32,7 +32,7 @@ def chatbot_response(user_input):
     return "I am sorry, I didn't understand that. Can you rephrase or ask about a specific grocery item?"
 
 # Chatbot interaction loop
-print("🛒 Welcome to our Grocery Chatbot! Type 'exit' to end the conversation.")
+print("Welcome to our Grocery Chatbot! Type 'exit' to end the conversation.")
 
 while True:
     user_message = input("You: ")
