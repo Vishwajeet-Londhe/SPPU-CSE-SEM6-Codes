@@ -1,74 +1,81 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<cstring>
+#define N 4
+
 using namespace std;
 
-bool isSafe(int **arr, int x, int y, int n){
-    for(int row=0;row<x;row++){
-        if(arr[row][y]==1){
-            return false;
-        }
-    }
 
-    int row =x;
-    int col =y;
-    while(row>=0 && col>=0){
-        if(arr[row][col]==1){
-            return false;
+void printPuzzle(int board[N][N]){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            cout << board[i][j] << " ";
         }
-        row--;
-        col--;
+        cout << '\n';
     }
-
-    row =x;
-    col =y;
-    while(row>=0 && col<n){
-        if(arr[row][col]==1){
-            return false;
-        }
-        row--;
-        col++;
-    }
-
-    return true;
 }
 
-bool nQueen(int** arr, int x, int n){
+bool isSafe(int row, int col, int slash[N][N],
+            int backSlash[N][N], bool rowLookup[],
+      bool slashLookUp[], bool backSlashLookUp[] ){
+          if(slashLookUp[slash[row][col]] || 
+          backSlashLookUp[backSlash[row][col]] || rowLookup[row]) 
+          return false;
 
-    if(x>=n){
-        return true;
-    }
+          return true;
+      }
 
-    for(int col=0;col<n;col++){
-        if(isSafe(arr,x,col,n)){
-            arr[x][col]=1;
-            if(nQueen(arr,x+1,n)){
+bool solveNqueenUtil(int board[N][N], int col, int slash[N][N], int backSlash[N][N], bool rowLookUp[N], bool slashLookUp[N], bool backSlashLookUp[N]){
+    if(col >= N) return true;
+    for(int i = 0; i < N; i++){
+        if(isSafe(i, col, slash, backSlash, rowLookUp, slashLookUp, backSlashLookUp))
+        {
+            board[i][col] = 1;
+            rowLookUp[i] = true;
+            slashLookUp[slash[i][col]] = true;
+            backSlashLookUp[backSlash[i][col]] = true;
+            if (solveNqueenUtil(board, col + 1,
+                                  slash, backSlash,
+             rowLookUp, slashLookUp, backSlashLookUp))
                 return true;
-            }
-            arr[x][col]=0;
+
+            board[i][col] = 0;
+            rowLookUp[i] = false;
+            slashLookUp[slash[i][col]] = false;            
+            backSlashLookUp[backSlash[i][col]] = false;
         }
     }
     return false;
 }
 
+void solveNqueen(){
+    int board[N][N];
+    memset(board, 0, sizeof(board)); // 0 intialize
+    int backSlash[N][N];
+    int slash[N][N];
+
+    bool rowLookUp[N] = {false};
+
+    bool backSlashLookUp[2*N - 1] = {false};
+    bool slashLookUp[2*N - 1] = {false};
+
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            backSlash[i][j] = (i - j) + (N - 1);
+            slash[i][j] = i + j;
+        }
+    }
+
+
+    if(solveNqueenUtil(board, 0, slash, backSlash, rowLookUp, slashLookUp, backSlashLookUp) == false){
+        cout << "Solution does not exist!!\n";
+        printPuzzle(board);
+    }
+    else{
+        printPuzzle(board);
+    }
+}
 
 int main(){
-    int n;
-    cin >> n;
-    
-    int **arr = new int*[n];    
-    for(int i=0;i<n;i++){
-        arr[i] = new int[n];
-        for(int j=0;j<n;j++){
-            arr[i][j]=0;
-        }
-    }
-
-    if(nQueen(arr,0,n)){
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                cout << arr[i][j] << " ";
-            }
-            cout << endl;
-        }
-    }
+    solveNqueen();
     return 0;
 }
