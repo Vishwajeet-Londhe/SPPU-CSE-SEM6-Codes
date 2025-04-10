@@ -45,7 +45,6 @@ def moveup(start,position):
 def movedown(start,position):
     start[position],start[position+3]= start[position+3],start[position]
 
-
 def movetile(start,goal):
     emptyat= start.index(-1)
     row = emptyat//3
@@ -76,8 +75,7 @@ def movetile(start,goal):
         movedown(start, emptyat)
     elif f4 == min_heuristic:
         moveup(start, emptyat)
-        
-        
+             
 def solveEight(start,goal):
     global g
     g+=1
@@ -89,7 +87,6 @@ def solveEight(start,goal):
         return
 
     solveEight(start,goal)
-
 
 def main():
     global g
@@ -112,30 +109,5 @@ def main():
     else:
         print("Not possible to solve")
 
-
 if __name__ == '__main__':
     main()
-
-
-
-# Test Cases
-# 
-# 1
-# 2
-# 3
-# -1
-# 4 
-# 6
-# 7 
-# 5 
-# 8 
-
-# 1 
-# 2 
-# 3 
-# 4 
-# 5 
-# 6 
-# 7 
-# 8
-# -1
