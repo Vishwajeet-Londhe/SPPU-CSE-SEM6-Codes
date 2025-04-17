@@ -17,8 +17,6 @@ public class VishwajeetSorting {
 
 // Anonymous Window
 
-// Declare your list (input)
 List<Integer> myInput = new List<Integer>{12, 4, 9, 2, 6};
 
-// Call sorting logic from the class
 VishwajeetSorting.sortList(myInput);

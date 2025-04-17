@@ -1,0 +1,23 @@
+public class VishwajeetFibonacci {
+    public static void generateFibonacci(Integer n) {
+        Integer a = 0;
+        Integer b = 1;
+        Integer c;
+
+        System.debug('Fibonacci Series:');
+        System.debug(a);
+        System.debug(b);
+
+        for (Integer i = 2; i < n; i++) {
+            c = a + b;
+            System.debug(c);
+            a = b;
+            b = c;
+        }
+    }
+}
+
+
+// Anonymous window
+
+VishwajeetFibonacci.generateFibonacci(10);

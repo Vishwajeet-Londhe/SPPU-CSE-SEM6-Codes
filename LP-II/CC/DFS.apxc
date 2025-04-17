@@ -1,0 +1,33 @@
+public class VishwajeetDFS {
+    // Method to perform DFS
+    public static void dfs(Map<Integer, List<Integer>> graph, Integer startNode) {
+        Set<Integer> visited = new Set<Integer>(); // Set to keep track of visited nodes
+        dfsHelper(graph, startNode, visited);
+    }
+
+    // Helper method for recursive DFS traversal
+    private static void dfsHelper(Map<Integer, List<Integer>> graph, Integer node, Set<Integer> visited) {
+        visited.add(node);
+        System.debug('Visited: ' + node);
+
+        // Recursively visit all adjacent nodes that haven't been visited
+        for (Integer neighbor : graph.get(node)) {
+            if (!visited.contains(neighbor)) {
+                dfsHelper(graph, neighbor, visited);
+            }
+        }
+    }
+}
+
+
+// Anonymous Window
+
+Map<Integer, List<Integer>> graph = new Map<Integer, List<Integer>>();
+
+graph.put(1, new List<Integer>{2, 3});
+graph.put(2, new List<Integer>{1, 4, 5});
+graph.put(3, new List<Integer>{1});
+graph.put(4, new List<Integer>{2});
+graph.put(5, new List<Integer>{2});
+
+VishwajeetDFS.dfs(graph, 1);
