@@ -1,4 +1,4 @@
-public class Vishwajeet {
+public class VishwajeetLinearSearch {
     public static void search(Integer key) {  
         System.debug('Linear Search Started...');
         
@@ -31,4 +31,4 @@ public class Vishwajeet {
 
 // Anonymous Window
 
-Vishwajeet.search(5);
+VishwajeetLinearSearch.search(10);

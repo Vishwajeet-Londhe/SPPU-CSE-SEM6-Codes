@@ -1,9 +1,9 @@
-public class Vishwajeet {
-    public Double xvalue {get;set;}
-    public Double yvalue {get;set;}
-    public Double result {get;set;}
-    public String operation {get;set;}
- 
+public class VishwajeetCalculator {
+    public Double xvalue { get; set; }
+    public Double yvalue { get; set; }
+    public Double result { get; set; }
+    public String operation { get; set; }
+
     public PageReference sub() {
         result = xvalue - yvalue;
         operation = 'Subtraction';
@@ -15,7 +15,7 @@ public class Vishwajeet {
         operation = 'Addition';
         return null;
     }
-   
+
     public PageReference mul() {
         result = xvalue * yvalue;
         operation = 'Multiplication';
@@ -35,32 +35,13 @@ public class Vishwajeet {
 
 
 
-
-
 // Anonymous window
 
-Vishwajeet v = new Vishwajeet();
+VishwajeetCalculator calc = new VishwajeetCalculator();
+calc.xvalue = 20;
+calc.yvalue = 5;
 
-// Set your input values
-v.xvalue = 50;
-v.yvalue = 10;
-
-// Perform Addition
-v.add();
-System.debug('Addition Result: ' + v.result + ' | Operation: ' + v.operation);
-
-// Perform Subtraction
-v.sub();
-System.debug('Subtraction Result: ' + v.result + ' | Operation: ' + v.operation);
-
-// Perform Multiplication
-v.mul();
-System.debug('Multiplication Result: ' + v.result + ' | Operation: ' + v.operation);
-
-// Perform Division
-v.div();
-if (v.result != null) {
-    System.debug('Division Result: ' + v.result + ' | Operation: ' + v.operation);
-} else {
-    System.debug('Division by zero is not allowed.');
-}
+calc.add(); System.debug(calc.operation + ': ' + calc.result);
+calc.sub(); System.debug(calc.operation + ': ' + calc.result);
+calc.mul(); System.debug(calc.operation + ': ' + calc.result);
+calc.div(); System.debug(calc.operation + ': ' + calc.result);
