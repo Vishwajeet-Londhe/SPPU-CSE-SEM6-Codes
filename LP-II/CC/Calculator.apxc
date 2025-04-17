@@ -1,29 +1,66 @@
-public class Calculator {
+public class Vishwajeet {
     public Double xvalue {get;set;}
     public Double yvalue {get;set;}
     public Double result {get;set;}
-    public string operation {get;set;}
+    public String operation {get;set;}
  
-    public pagereference sub() {
-        result = xvalue-yvalue;
+    public PageReference sub() {
+        result = xvalue - yvalue;
         operation = 'Subtraction';
         return null;
     }
-    public pagereference add() {
-        result = xvalue+yvalue;
+
+    public PageReference add() {
+        result = xvalue + yvalue;
         operation = 'Addition';
         return null;
     }
    
-     public pagereference mul() {
-        result = xvalue*yvalue;
+    public PageReference mul() {
+        result = xvalue * yvalue;
         operation = 'Multiplication';
         return null;
-     }
-    public pagereference div() {
-        result = xvalue+yvalue;
+    }
+
+    public PageReference div() {
+        if (yvalue != 0) {
+            result = xvalue / yvalue;
+        } else {
+            result = null;  // Avoid division by zero
+        }
         operation = 'Division';
         return null;
     }
-    
+}
+
+
+
+
+
+// Anonymous window
+
+Vishwajeet v = new Vishwajeet();
+
+// Set your input values
+v.xvalue = 50;
+v.yvalue = 10;
+
+// Perform Addition
+v.add();
+System.debug('Addition Result: ' + v.result + ' | Operation: ' + v.operation);
+
+// Perform Subtraction
+v.sub();
+System.debug('Subtraction Result: ' + v.result + ' | Operation: ' + v.operation);
+
+// Perform Multiplication
+v.mul();
+System.debug('Multiplication Result: ' + v.result + ' | Operation: ' + v.operation);
+
+// Perform Division
+v.div();
+if (v.result != null) {
+    System.debug('Division Result: ' + v.result + ' | Operation: ' + v.operation);
+} else {
+    System.debug('Division by zero is not allowed.');
 }
