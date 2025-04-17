@@ -1,0 +1,24 @@
+public class VishwajeetSorting {
+    public static void sortList(List<Integer> arr) {
+        Integer n = arr.size();
+        for (Integer i = 0; i < n - 1; i++) {
+            for (Integer j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    Integer temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        System.debug('Sorted List: ' + arr);
+    }
+}
+
+
+// Anonymous Window
+
+// Declare your list (input)
+List<Integer> myInput = new List<Integer>{12, 4, 9, 2, 6};
+
+// Call sorting logic from the class
+VishwajeetSorting.sortList(myInput);
