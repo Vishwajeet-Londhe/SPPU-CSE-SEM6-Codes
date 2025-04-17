@@ -1,0 +1,34 @@
+public class Vishwajeet {
+    public static void search(Integer key) {  
+        System.debug('Linear Search Started...');
+        
+        Boolean found = false;  
+        List<Integer> lon = new List<Integer>();  
+
+        lon.add(3);
+        lon.add(4);
+        lon.add(5);
+        lon.add(6);
+
+        System.debug('List: ' + lon);
+
+        for (Integer i = 0; i < lon.size(); i++) {
+            if (key == lon[i]) {
+                found = true;
+                break; 
+            }
+        }
+
+        if (found) {
+            System.debug('Element Found: ' + key); 
+        } else {
+            System.debug('Element Not Found: ' + key);
+        }
+    }
+}
+
+
+
+// Anonymous Window
+
+Vishwajeet.search(5);
