@@ -3,45 +3,57 @@ public class VishwajeetCalculator {
     public Double yvalue { get; set; }
     public Double result { get; set; }
     public String operation { get; set; }
-
-    public PageReference sub() {
-        result = xvalue - yvalue;
-        operation = 'Subtraction';
-        return null;
-    }
+    public String message { get; set; }
 
     public PageReference add() {
         result = xvalue + yvalue;
         operation = 'Addition';
+        message = null;
+        return null;
+    }
+
+    public PageReference sub() {
+        result = xvalue - yvalue;
+        operation = 'Subtraction';
+        message = null;
         return null;
     }
 
     public PageReference mul() {
         result = xvalue * yvalue;
         operation = 'Multiplication';
+        message = null;
         return null;
     }
 
     public PageReference div() {
         if (yvalue != 0) {
             result = xvalue / yvalue;
+            message = null;
         } else {
-            result = null;  // Avoid division by zero
+            result = null;
+            message = 'Cannot divide by zero.';
         }
         operation = 'Division';
+        return null;
+    }
+
+    public PageReference square() {
+        result = xvalue * xvalue;
+        operation = 'Square';
+        message = null;
         return null;
     }
 }
 
 
-
 // Anonymous window
 
-VishwajeetCalculator calc = new VishwajeetCalculator();
-calc.xvalue = 20;
-calc.yvalue = 5;
-
-calc.add(); System.debug(calc.operation + ': ' + calc.result);
-calc.sub(); System.debug(calc.operation + ': ' + calc.result);
-calc.mul(); System.debug(calc.operation + ': ' + calc.result);
-calc.div(); System.debug(calc.operation + ': ' + calc.result);
+VishwajeetCalculator c = new VishwajeetCalculator();
+c.xvalue = 20;
+c.yvalue = 5;
+c.add(); System.debug(c.operation + ': ' + c.result);
+c.sub(); System.debug(c.operation + ': ' + c.result);
+c.mul(); System.debug(c.operation + ': ' + c.result);
+c.div(); System.debug(c.operation + ': ' + c.result);
+c.square(); System.debug(c.operation + ': ' + c.result);
