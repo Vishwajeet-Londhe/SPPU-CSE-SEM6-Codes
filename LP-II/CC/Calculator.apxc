@@ -44,16 +44,30 @@ public class VishwajeetCalculator {
         message = null;
         return null;
     }
+
+    public PageReference sqrt() {
+        if (xvalue >= 0) {
+            result = Math.sqrt(xvalue);
+            operation = 'Square Root';
+            message = null;
+        } else {
+            result = null;
+            message = 'Cannot take square root of a negative number.';
+        }
+        return null;
+    }
 }
 
 
 // Anonymous window
 
 VishwajeetCalculator c = new VishwajeetCalculator();
-c.xvalue = 20;
+c.xvalue = 3;
 c.yvalue = 5;
+
 c.add(); System.debug(c.operation + ': ' + c.result);
 c.sub(); System.debug(c.operation + ': ' + c.result);
 c.mul(); System.debug(c.operation + ': ' + c.result);
 c.div(); System.debug(c.operation + ': ' + c.result);
 c.square(); System.debug(c.operation + ': ' + c.result);
+c.sqrt(); System.debug(c.operation + ': ' + c.result);
