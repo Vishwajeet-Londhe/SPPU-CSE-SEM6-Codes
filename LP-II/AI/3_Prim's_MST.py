@@ -8,8 +8,12 @@ class Graph():
 
     def printMST(self, parent):
         print("Edge \tWeight")
+        total_weight = 0
         for i in range(1, self.V):
-            print(parent[i]+1, "-", i+1, "\t", self.graph[parent[i]][i])
+            weight = self.graph[parent[i]][i]
+            print(parent[i] + 1, "-", i + 1, "\t", weight)
+            total_weight += weight
+        print("Total weight of MST:", total_weight)
 
     def minKey(self, key, mstSet):
         min = sys.maxsize
