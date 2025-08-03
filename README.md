@@ -1,10 +1,10 @@
 <h1 align="center">SPPU TE COMP SEM-VI Practical Codes</h1>
 
-<h1 align='center'>
+<h2 align='center'>
   <a href="https://whatsapp.com/channel/0029ValjFriICVfpcV9HFc3b">
     WhatsApp Channel for Quick Updates
   </a>
-</h1>
+</h2>
 
 **Join our Telegram channel [here!](https://t.me/SPPU_TE_BE_COMP)**
 
