@@ -5,8 +5,6 @@
     WhatsApp Channel for Quick Updates
   </a>
 </h1>
-<h2 align="center"> To join "TechMart" GitHub Organization, click <a href="https://github.com/TechMart-Pune/support/issues/new?assignees=&labels=invite+me&template=invitation.yml&title=Please+invite+me+to+the+TechMart+GitHub+Community+Organization" >here</a> </h2>
-<h2>📌 <ins>About Us</ins></h2>
 
 **Join our Telegram channel [here!](https://t.me/SPPU_TE_BE_COMP)**
 
