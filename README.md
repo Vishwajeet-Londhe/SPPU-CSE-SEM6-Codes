@@ -1,10 +1,12 @@
 <h1 align="center">SPPU TE COMP SEM-VI Practical Codes</h1>
 
-<p align='center'>
+<h1 align='center'>
   <a href="https://whatsapp.com/channel/0029ValjFriICVfpcV9HFc3b">
     WhatsApp Channel for Quick Updates
   </a>
-</p>
+</h1>
+<h2 align="center"> To join "TechMart" GitHub Organization, click <a href="https://github.com/TechMart-Pune/support/issues/new?assignees=&labels=invite+me&template=invitation.yml&title=Please+invite+me+to+the+TechMart+GitHub+Community+Organization" >here</a> </h2>
+<h2>📌 <ins>About Us</ins></h2>
 
 **Join our Telegram channel [here!](https://t.me/SPPU_TE_BE_COMP)**
 
