@@ -15,7 +15,7 @@ All TE Codes of following subjects available with notes
 
 <hr/>
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/3c77d01e-0e5b-4bcd-8bcf-6410aec6840c" width="50%" />
+  <img src="https://github.com/user-attachments/assets/7efa5131-31b3-40dc-982f-4ce349282da5" width="50%" />
 </p>
 <hr/>
 
