@@ -11,7 +11,7 @@
 All TE Codes of following subjects available with notes  
 1) DSBDA
 2) WTL
-2) LP-II ( AI , Cloud Computing )
+3) LP-II ( AI , Cloud Computing )
 
 <hr/>
 <p align="center">
